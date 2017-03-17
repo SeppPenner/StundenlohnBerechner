@@ -2,19 +2,21 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "StundenlohnBerechner"
-#define MyAppVersion "1.0.0.0"
+#define MyAppVersion "1.0.0.1"
 #define MyAppPublisher "Hämmer Electronics"
-#define MyAppURL "http://www.softwareload24.de.tl"
+#define MyAppURL "www.softwareload24.de.tl"
 #define MyAppExeName "StundenlohnBerechner.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{8A091144-EC62-4EEF-9DB9-54828ADD5421}
+AppId={{7BB568C6-7205-44C5-97BF-CE14A8C655D1}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 VersionInfoProductVersion={#MyAppVersion}
+VersionInfoVersion={#MyAppVersion}
+UninstallDisplayIcon={app}\{#MyAppExeName}
 ;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
@@ -22,15 +24,15 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-AllowNoIcons=yes
-LicenseFile=C:\Users\Tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\License.txt
-OutputDir=C:\Users\Tim\Desktop\StundenlohnBerechner\Setup\
+LicenseFile=C:\Users\tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\bin\Debug\License.txt
+OutputDir=C:\Users\tim\Desktop\StundenlohnBerechner\Setup
 OutputBaseFilename=StundenlohnBerechner-Setup
-SetupIconFile=C:\Users\Tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\Money.ico
+SetupIconFile=C:\Users\tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\Money.ico
 Compression=lzma
 SolidCompression=yes
 
 [Languages]
+Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "german"; MessagesFile: "compiler:Languages\German.isl"
 
 [Tasks]
@@ -38,12 +40,16 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "C:\Users\Tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\bin\Debug\StundenlohnBerechner.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\bin\Debug\StundenlohnBerechner.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\bin\Debug\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\tim\Desktop\StundenlohnBerechner\StundenlohnBerechner\bin\Debug\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
+Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
 
