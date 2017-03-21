@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 using System.Windows.Forms;
 using Languages.Implementation;
 using Languages.Interfaces;
@@ -8,6 +7,9 @@ namespace StundenlohnBerechner
 {
     public partial class Main : Form
     {
+        private readonly ILanguageManager _lm = new LanguageManager();
+        private Language _lang;
+
         public Main()
         {
             InitializeComponent();
@@ -28,9 +30,6 @@ namespace StundenlohnBerechner
         {
             Text = Application.ProductName + @" " + Application.ProductVersion;
         }
-
-        private readonly ILanguageManager _lm = new LanguageManager();
-        private Language _lang;
 
 
         private void InitializeLanguageManager()
