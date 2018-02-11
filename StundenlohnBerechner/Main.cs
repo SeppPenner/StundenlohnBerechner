@@ -8,7 +8,7 @@ namespace StundenlohnBerechner
     public partial class Main : Form
     {
         private readonly ILanguageManager _lm = new LanguageManager();
-        private Language _lang;
+        private ILanguage _lang;
 
         public Main()
         {
