@@ -2,11 +2,10 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "StundenlohnBerechner"
-#define MyAppVersion "1.0.1.0"
+#define MyAppVersion "1.0.2.0"
 #define MyAppPublisher "Hämmer Electronics"
 #define MyAppURL "www.softwareload24.de.tl"
 #define MyAppExeName "StundenlohnBerechner.exe"
-#define MyPath "C:\Users\Tim\Documents\Git\C# und VB\StundenlohnBerechner"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -25,10 +24,10 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={commonpf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-LicenseFile={#MyPath}\StundenlohnBerechner\bin\Release\License.txt
-OutputDir={#MyPath}\Setup
+LicenseFile=..\src\StundenlohnBerechner\License.txt
+OutputDir=..\Setup
 OutputBaseFilename=StundenlohnBerechner-Setup
-SetupIconFile={#MyPath}\StundenlohnBerechner\Money.ico
+SetupIconFile=..\src\StundenlohnBerechner\Money.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -41,10 +40,11 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "{#MyPath}\StundenlohnBerechner\bin\Release\StundenlohnBerechner.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\StundenlohnBerechner\bin\Release\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\StundenlohnBerechner\bin\Release\License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyPath}\StundenlohnBerechner\bin\Release\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\src\StundenlohnBerechner\bin\Release\net5.0-windows\StundenlohnBerechner.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\StundenlohnBerechner\bin\Release\net5.0-windows\StundenlohnBerechner.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\StundenlohnBerechner\bin\Release\net5.0-windows\Languages.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\StundenlohnBerechner\bin\Release\net5.0-windows\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\src\StundenlohnBerechner\bin\Release\net5.0-windows\languages\*"; DestDir: "{app}\languages\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
