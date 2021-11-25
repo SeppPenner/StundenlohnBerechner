@@ -2,7 +2,6 @@ StundenlohnBerechner
 ====================================
 
 StundenlohnBerechner is an executable to calculate the net hourly salary.
-The executable was written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/dto3h4jgaf6305s9?svg=true)](https://ci.appveyor.com/project/SeppPenner/stundenlohnberechner)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/StundenlohnBerechner.svg)](https://github.com/SeppPenner/StundenlohnBerechner/issues)
